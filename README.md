@@ -1,7 +1,8 @@
-# bible_or_metal
+# bible-or-metal
 Quiz: can you tell if the quote is from the bible or a metal song?
 
-The URL will probably be this: https://claude-martin.ch/bible_or_metal/
+The URL will probably be this: https://claude-martin.ch/bible-or-metal/
+"bible-or-metal" is both the name of the github repo and the angular project name.
 
 The goal is to have a quiz like this: https://claude-martin.ch/presidential
 
