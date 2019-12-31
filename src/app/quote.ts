@@ -1,4 +1,5 @@
 export class Quote {
+    public id: string;
     public source: string;
     public link: string;
     public quote: string[];
@@ -14,11 +15,16 @@ export class Quote {
 
     public original?:string[];
 
-    constructor(object?:any) {
+    constructor(id?:string, object?:any) {
+        if(!!id) this.id = id;
         if(!!object)
-            for(const key in this) {
-                if(this.hasOwnProperty(key) && object.hasOwnProperty(key)) 
+            for(const key in object) {
+                if(object.hasOwnProperty(key)) 
                     this[key] = object[key];
             }
+    }
+
+    public toString = () : string => {
+        return `Quote(${this.source}:${this.id})`;
     }
 }

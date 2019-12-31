@@ -32,11 +32,11 @@ export class QuotesProvider {
       let promises : Promise<Quote>[] = [];
       for (let i = 0; i < files.length; i++) { 
         let file = files[i];
-        console.log('reading: '+file);
-        this.quotes[i] = new Quote({'source':'metal','title':'LOADING...'});
+       // console.log('reading: '+file);
+        //this.quotes[i] = new Quote({'source':'metal','title':'LOADING...'});
         promises.push(new Promise<Quote>((resolve, reject) => {
-          this.http.get(this.baseUrl+file).subscribe(data => {
-            resolve(this.quotes[i] = new Quote(data));
+          this.http.get(this.baseUrl+file+".json").subscribe(data => {
+            resolve(this.quotes[file] = new Quote(file, data));
           },(err) => {
             reject(err.message);
           });
@@ -50,7 +50,9 @@ export class QuotesProvider {
 
   /** returns a shuffled (randomly sorted) array of all quotes.  */
   public getShuffledQuotes() : Quote[] {
-    const clone = Object.assign([], this.quotes);
+    const clone = [];//Object.assign([], this.quotes);
+    for (let key in this.quotes)
+      clone.push(this.quotes[key]);
     this.shuffle(clone);
     return clone;
   }

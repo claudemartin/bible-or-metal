@@ -1,0 +1,71 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "npm",
+            "script": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$tsc"
+            ]
+        },
+        {
+            "label":"create index",
+            "type": "shell",
+            //"command": "bash",
+            //"args": ["./src/assets/quotes/index.sh"],
+            "command": "./src/assets/quotes/index.sh",
+            "group": "build"
+        },
+        {
+            "label": "test",
+            "type": "npm",
+            "script": "test",
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "serve",
+            "type": "shell",
+            "command": "npm start",
+            "problemMatcher": [
+                "$tsc"
+            ]
+        },
+        {
+            "label": "open",
+            "type": "shell",
+            "command": "npm start -- -o",
+            "problemMatcher": [
+                "$tsc"
+            ]
+        },
+        {
+            "taskName": "lint",
+            "type": "shell",
+            "command": "npm run lint",
+            "problemMatcher": [
+                "$tsc"
+            ]
+        },
+        {
+            "taskName": "e2e",
+            "type": "shell",
+            "command": "npm run e2e"
+        }
+    ]
+}

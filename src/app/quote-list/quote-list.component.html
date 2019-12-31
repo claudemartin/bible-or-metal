@@ -1,7 +1,11 @@
-<p>quote-list works!</p>
-<!--
-<div *ngFor="let quote in quotes">
-    <app-quote-metal *ngIf="quote.source === 'metal'"></app-quote-metal>
-    <app-quote-bible *ngIf="quote.source === 'bible'"></app-quote-bible>
+<p>start of quote-list</p>
+
+<p># of quotes: {{quotes.length}}</p>
+
+<div *ngFor="let quote of quotes" >
+    <app-quote-metal *ngIf="quote.source === 'metal'" [quote]="quote"></app-quote-metal>
+    <app-quote-bible *ngIf="quote.source === 'bible'" [quote]="quote"></app-quote-bible>
 </div>
--->
+
+
+<p>end of quote-list</p>

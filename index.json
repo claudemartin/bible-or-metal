@@ -1,0 +1,10 @@
+[
+"angular",
+"index",
+"package",
+"package-lock",
+"tsconfig.app",
+"tsconfig",
+"tsconfig.spec",
+"tslint"
+]
