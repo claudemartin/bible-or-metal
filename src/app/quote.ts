@@ -14,7 +14,8 @@ export class Quote {
     public genre?: string;
 
     public original?:string[];
-
+    public comment?:string;
+    
     constructor(id?:string, object?:any) {
         if(!!id) this.id = id;
         if(!!object)

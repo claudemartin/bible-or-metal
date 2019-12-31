@@ -2,7 +2,7 @@
 
 <p># of quotes: {{quotes.length}}</p>
 
-<div *ngFor="let quote of quotes" >
+<div *ngFor="let quote of quotes | slice:0:3" >
     <app-quote-metal *ngIf="quote.source === 'metal'" [quote]="quote"></app-quote-metal>
     <app-quote-bible *ngIf="quote.source === 'bible'" [quote]="quote"></app-quote-bible>
 </div>
