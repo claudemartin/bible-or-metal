@@ -1,25 +1,16 @@
 {
 	"source":"bible",
 	"book":"Exodus",
-	"verse":"15:6-7",
-	"link":"https://www.biblegateway.com/passage/?search=Exodus+15%3A6-7&version=NIV",
+	"verse":"15:9-10",
+	"link":"https://www.biblegateway.com/passage/?search=Exodus+15%3A9-10&version=NIV",
 	"quote": [
-		"You stretch out your right hand,",
-	    "and the earth swallows your enemies.",
-	    "In your unfailing love you will lead,",
-	    "the people you have redeemed.",
-	    "In your strength you will guide them to your dwelling.",
-	    "The nations will hear and tremble;",
-	    "anguish will grip the people."
-	],
-	"original": [
-		"You stretch out your right hand,",
-	    "and the earth swallows your enemies.",
-	    "In your unfailing love you will lead,",
-	    "the people you have redeemed.",
-	    "In your strength you will guide them",
-	    "to your holy dwelling.",
-	    "The nations will hear and tremble;",
-	    "anguish will grip the people of Philistia."
+		"The enemy boasted,",
+    	"‘I will pursue,",
+    	"I will overtake them.",
+    	"I will divide the spoils.",
+    	"I will gorge myself on them.",
+    	"I will draw my sword",
+    	"and my hand will destroy them.’"
+
 	]
 }
