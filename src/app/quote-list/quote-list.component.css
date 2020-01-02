@@ -1,0 +1,27 @@
+div.container {
+    border:3px solid red;
+    border-radius: 5em;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 3em;
+}
+
+div.quote {
+    text-align: left;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+div.quote p {
+    margin: 0;
+}
+
+button.active.wrong {
+    background-color: red;
+}
+button.active.correct {
+    background-color: green;
+}

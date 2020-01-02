@@ -17,4 +17,16 @@ export class QuoteListComponent implements OnInit {
   ngOnInit() {
   }
 
+  public bible(quote: Quote) {
+    this.setAnswer(quote, 'bible');
+  }
+  public metal(quote: Quote) {
+    this.setAnswer(quote, 'metal');
+  }
+
+  private setAnswer(quote: Quote, answer : string) {
+    if(quote.isAnswered()) return;
+    quote.answer = answer;
+  }
+
 }

@@ -16,6 +16,9 @@ export class Quote {
     public original?:string[];
     public comment?:string;
     
+    /* Program state */
+    public answer : string = null;// null / bible / metal
+
     constructor(id?:string, object?:any) {
         if(!!id) this.id = id;
         if(!!object)
@@ -27,5 +30,14 @@ export class Quote {
 
     public toString = () : string => {
         return `Quote(${this.source}:${this.id})`;
+    }
+
+
+    public isCorrect() {
+        return this.answer === this.source;
+    }
+
+    public isAnswered() {
+        return !!this.answer;
     }
 }
