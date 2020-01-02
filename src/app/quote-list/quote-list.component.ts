@@ -29,4 +29,9 @@ export class QuoteListComponent implements OnInit {
     quote.answer = answer;
   }
 
+  public getTotalScore() {
+    let score = this.quotes.map(q => q.getScore()).reduce((a, b) => a + b, 0);
+    return score;
+  }
+
 }

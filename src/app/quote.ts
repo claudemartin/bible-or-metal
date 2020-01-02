@@ -40,4 +40,13 @@ export class Quote {
     public isAnswered() {
         return !!this.answer;
     }
+
+    public getScore() {
+        if(!this.isAnswered()) return 0;
+        if(this.isCorrect()) return 1;
+        // User failed to recognise the Lord's word:
+        if(this.source === 'bible') return -2;
+        // User was milead by the devil:
+        return -1;
+    }
 }
