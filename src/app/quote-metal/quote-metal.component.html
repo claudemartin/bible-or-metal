@@ -1,3 +1,4 @@
 <div >
     <p>These are lyrics from the song <strong>{{quote.title}}</strong> by {{quote.genre}} band <strong>{{quote.band}}</strong>.</p>
+    <form *ngIf="quote.link" target="metal_video"><button type="submit" [formaction]="quote.link">Watch Video</button></form>
 </div>
