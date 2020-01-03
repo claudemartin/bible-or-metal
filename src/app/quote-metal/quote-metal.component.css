@@ -6,3 +6,8 @@ button {
     border: 2px solid gray;
     border-radius: 20px;
 }
+
+strong {
+    font-size: 120%;
+    white-space: pre;
+}
