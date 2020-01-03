@@ -14,6 +14,9 @@ div.quote {
     margin-right: auto;
     display: table;
 }
+div.quote.long-quote {
+    font-size: 80%;
+}
 
 div.quote p {
     margin: 0;

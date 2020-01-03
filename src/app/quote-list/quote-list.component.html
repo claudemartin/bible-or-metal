@@ -4,7 +4,7 @@
 
 <div *ngFor="let quote of quotes" class="container">
 
-    <div class="quote">
+    <div [ngClass]="{quote:true, 'long-quote': quote.quote.length>9}">
         <p *ngFor="let line of quote.quote">{{line}}</p>
     </div>
 
