@@ -3,3 +3,13 @@ a {
     text-decoration: underline;
     font-weight: bold;
 }
+
+
+button {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 120%;
+    padding: 0.2em 0.6em;
+    margin: 2em;
+    border: 2px solid gray;
+    border-radius: 20px;
+}

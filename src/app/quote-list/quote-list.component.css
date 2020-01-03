@@ -14,14 +14,33 @@ div.quote {
     margin-right: auto;
     display: table;
 }
-
+/*
+div.quote>p:first-child::first-letter  {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 200%;
+    line-height: 100%;
+    padding-right: 0.1em;
+    display: block;
+    float:left;
+}
+*/
 div.quote p {
     margin: 0;
 }
 
+button {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 150%;
+    padding: 0.5em 1em;
+    margin: 2em;
+    border: 5px solid gray;
+    border-radius: 20px;
+}
 button.active.wrong {
-    background-color: red;
+    color: red;
+    border-color: red;
 }
 button.active.correct {
-    background-color: green;
+    color: green;
+    border-color: green;
 }
