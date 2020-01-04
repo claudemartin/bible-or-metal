@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { QuotesProvider } from './quotes.provider';
-
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,10 @@ import { QuotesProvider } from './quotes.provider';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Bible or Metal?';
-  bible : number = -1;
-  metal : number = -1;
+  public title = 'Bible or Metal?';
+  public bible : number = -1;
+  public metal : number = -1;
+  public production :  boolean = false;
 
   constructor(private quotesProvider: QuotesProvider){
       this.bible = this.quotesProvider.count(q => q.source==='bible');
@@ -18,6 +19,6 @@ export class AppComponent {
   }
 
   ngOnInit(){
-
+    this.production = environment.production;
   }
 }

@@ -1,12 +1,208 @@
 @import url('https://fonts.googleapis.com/css?family=Stoke|UnifrakturCook:700&display=swap');
 
-* {
-    font-family: 'Stoke', serif;
-    font-size: 16pt;
-}
+
 
 h1 {
     font-family: 'UnifrakturCook', cursive;
     text-align: center;
     font-size: 400%;
 }
+h1 span {
+    font-size: 100%;
+    font-family: 'UnifrakturCook', cursive;
+}
+.book {
+    display: inline-block;
+    transform: rotate(-10deg);
+}
+.horns {
+    display: inline-block;
+    transform: rotate(10deg);
+}
+
+.unholy {
+    position: relative;
+}
+
+.burn1 {
+    animation: flames 1s ease-in-out infinite alternate;
+}
+.burn2 {
+    animation: flames .65s ease-in-out infinite alternate;
+}
+.burn3 {
+    animation: flames .8s ease-in-out infinite alternate;
+}
+.burn4 {
+    animation: flames .7s ease-in-out infinite alternate;
+}
+.burn5 {
+    animation: flames .9s ease-in-out infinite alternate;
+}
+
+@keyframes flames
+{
+    0% {
+        text-shadow: 
+            0 0 10px #fefcc9,
+            5px -5px 15px #feec85,
+            -10px -10px 20px #ffae34,
+            10px -20px 25px #ec760c,
+            -10px -30px 30px #cd4606,
+            0 -40px 45px #973616b7,
+            5px -45px 40px #451b0ea1;
+    }
+    100% {
+        text-shadow: 
+            0 0 10px #fefcc9,
+            5px -5px 15px #fefcc9,
+            -10px -10px 20px #feec85,
+            11px -21px 30px #ffae34,
+            -11px -29px 25px #ec760c,
+            0 -41px 40px #cd4506a4,
+            5px -45px 40px  #9736168f;
+    }
+}
+
+.unholy::before {
+    content: "Metal";
+    position: absolute;
+    left: 0;
+    top:0;
+    width:100%;
+    background-size: 200%;
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%,rgba(255,255,255,0.8) 50%,rgba(255,255,255,0) 60%,rgba(255,255,255,0) 100%);
+    background-repeat: no-repeat;
+    background-clip: text;
+    color: transparent;
+    mix-blend-mode: screen;
+    animation: shine 4s infinite;
+    text-shadow: none;
+}
+
+@keyframes shine {
+	0% {background-position: -150px;}
+	100% {background-position: 400px;}
+}
+
+
+
+.holy {
+    text-shadow: 0px 0px 30px #fff;
+}
+.holy::after {
+    font-size: 16pt;
+    display: inline-block;
+    position: relative;
+    content: '👼🏼';
+    width:0;
+    height:0;
+    top: -90px;
+    left: 0px;
+    animation: angel 5s infinite;
+    animation-timing-function: ease-in;
+    transform: rotate(0deg);
+}
+.holy::before {
+    font-size: 17pt;
+    display: inline-block;
+    position: relative;
+    content: '👼🏾';
+    width:0;
+    height:0;
+    top: -70px;
+    left: 150px;
+    animation: angel 6s infinite;
+    animation-timing-function: ease-out;
+    transform: rotate(0deg) translateX(0px);
+    animation-direction: reverse;
+}
+
+@keyframes angel {
+    0% {
+        top: -80px;
+        transform: rotate(3deg)  translateX(-100px);
+    }
+    5% {
+        top: -76px;
+        transform: rotate(7deg) translateX(-130px);
+    }
+    10% {
+        top: -70px;
+        transform: rotate(10deg) translateX(-170px);
+    }
+    15% {
+        top: -60px;
+        transform: rotate(6deg) translateX(-190px);
+    }
+    20% {
+        top: -50px;
+        transform: rotate(2deg) translateX(-200px);
+    }
+    25% {
+        top: -57px;
+        transform: rotate(-1deg) translateX(-180px);
+    }
+    30% {
+        top: -40px;
+        transform: rotate(-5deg) translateX(-173px);
+    }
+    35% {
+        top: -47px;
+        transform: rotate(-8deg) translateX(-111px);
+    }
+    40% {
+        top: -39px;
+        transform: rotate(-10deg) translateX(-80px);
+    }
+    45% {
+        top: -42px;
+        transform: rotate(-7deg) translateX(-50px);
+    }
+    50% {
+        top: -30px;
+        transform: rotate(-5deg) translateX(-30px);
+    }
+    55% {
+        top: -28px;
+        left:;
+        transform: rotate(-2deg) translateX( -10px);
+    }
+    60% {
+        top: -20px;
+        transform: rotate(1deg) translateX(0px);
+    }
+    65% {
+        top: -30px;
+        transform: rotate(5deg) translateX(-5px);
+    }
+    70% {
+        top: -35px;
+        transform: rotate(8deg) translateX(-20px);
+    } 
+    75% {
+        top: -47px;
+        transform: rotate(11deg) translateX(-34px);
+    }      
+    80% {
+        top: -50px;
+        transform: rotate(9deg) translateX(-40px);
+    }
+    85% {
+        top: -53px;
+        transform: rotate(6deg) translateX(-45px);
+    }
+    90% {
+        top: -60px;
+        transform: rotate(4deg) translateX(-60px);
+    }
+    95% {
+        top: -72px;
+        transform: rotate(2deg) translateX(-90px);
+    }
+    100% {
+        top: -80px;
+        transform: rotate(1deg) translateX(-100px);
+    }
+  }
+

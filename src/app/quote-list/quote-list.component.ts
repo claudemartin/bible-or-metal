@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuotesProvider } from '../quotes.provider';
 import { Quote } from '../quote';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-quote-list',
@@ -9,12 +10,14 @@ import { Quote } from '../quote';
 })
 export class QuoteListComponent implements OnInit {
   quotes : Quote[] = [];
+  production: boolean = false;
 
   constructor(private quotesProvider: QuotesProvider){
     this.quotes = this.quotesProvider.getShuffledQuotes();
   }
 
   ngOnInit() {
+    this.production = environment.production;
   }
 
   public bible(quote: Quote) {

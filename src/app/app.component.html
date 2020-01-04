@@ -1,17 +1,40 @@
-<h1>{{title}}</h1>
+<h1><span class="book">📖</span> <span class="holy">Bible</span> or <span class="unholy"><span class="burn1">M</span><span class="burn2">e</span><span class="burn3">t</span><span class="burn4">a</span><span class="burn5">l</span></span> <span class="horns">🤘</span></h1>
 
-<!--
-<quote *ngFor="let q of quotes">
-    {{q.title}}
-    <blockquote>
-        <span *ngFor="let line of q.quote">{{line}}<br/></span>
-    </blockquote>
-</quote>
+<div *ngIf="!production">
+    <p>This is not production mode!!!</p>
+    <p>Bible quotes: {{bible}}</p>
+    <p>Metal quotes: {{metal}}</p>
+</div>
 
-<app-quote *ngFor="let q of quotes">
-    {{q.title}}
-</app-quote>
--->
+<div>
+    <p>
+        All you have to do is guess if the verses are quoted from a modern translation of the bible 
+        (<abbr title="New International Version of the Holy Bible">NIV</abbr>) 
+        or from the lyrics of some metal song (including genres, such as Heavy Metal, Hard Rock, Black Metal, et cetera).
+    </p>
+    <p>For most users this is just a fun quiz. For those who want to test if they truly know the word of God, 
+        they can use this to see how well they know it and how easily they get tempted by the devil 
+        for thinking metal quotes are His word.</p>
+    <p>Not all metal lyrics featured here are satanic. There is even some White Metal mixed in and for a serious challenge 
+        there are some metal lyrics based on bible verses.
+        And the devil made me change some of the quotes to make it more challenging. 
+        Sometimes interpunctation is added or removed, so try to ignore that.
+        It could even be a small change of words to make it rhyme or not rhyme or some other alteration to make it harder.
+        In that case you can see the original after you answered.
+    </p>
+    <p>
+        The score you get is calculated as such:
+    </p>
+    <ul>
+        <li>Correct answer: <strong style="color: green">+1 point</strong></li>
+        <li>Incorrect answer:</li>
+        <ul>
+            <li>You did not recognise the holy word: <strong style="color: red">-2 points</strong></li>
+            <li>You mistook metal lyrics for the bible: <strong style="color: red">-1 point</strong></li>
+        </ul>
+    </ul>
+
+</div>
 
 <app-quote-list></app-quote-list>
 
@@ -20,8 +43,3 @@
     TODO: RESULTS!
 </div>
 
-<div *ngIf="!prod">
-    <p>This is not production mode!!!</p>
-    <p>Bible quotes: {{bible}}</p>
-    <p>Metal quotes: {{metal}}</p>
-</div>
