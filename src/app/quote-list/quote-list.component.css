@@ -5,6 +5,8 @@ div.container {
     color: white;
     text-align: center;
     padding: 3em;
+    height: 80vh;
+    margin-bottom: 20vh;
 }
 
 div.quote {
