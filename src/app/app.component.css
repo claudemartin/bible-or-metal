@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Stoke|UnifrakturCook:700&display=swap');
-
-
+div.section {
+    padding: 5%;
+}
 
 h1 {
     font-family: 'UnifrakturCook', cursive;
     text-align: center;
     font-size: 400%;
+    margin-top: 0;
 }
 h1 span {
     font-size: 100%;
@@ -206,3 +207,55 @@ h1 span {
     }
   }
 
+
+div.container {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+div.quote {
+    text-align: left;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    min-height: 35%;
+}
+
+div.quote.long-quote {
+    font-size: 80%;
+}
+
+
+/*
+div.quote>p:first-child::first-letter  {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 200%;
+    line-height: 100%;
+    padding-right: 0.1em;
+    display: block;
+    float:left;
+}
+*/
+
+div.quote p {
+    margin: 0;
+}
+
+button {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 150%;
+    padding: 0.5em 1em;
+    margin: 1em 2em;
+    border: 5px solid gray;
+    border-radius: 20px;
+}
+button.active.wrong {
+    color: red;
+    border-color: red;
+}
+button.active.correct {
+    color: green;
+    border-color: green;
+}
