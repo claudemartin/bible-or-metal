@@ -106,7 +106,11 @@ export class AppComponent {
 
   
   public firstSkippedAnchor() {
-    return this.quotes.find(q => !q.isAnswered()).getAnchor();
+    try {
+      return this.quotes.find(q => !q.isAnswered()).getAnchor();
+    } catch(e) {
+      return 'results';
+    }
   }
 
   ngOnInit(){
