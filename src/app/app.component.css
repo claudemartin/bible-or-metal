@@ -175,7 +175,6 @@ h1 span {
     }
     55% {
         top: -28px;
-        left:;
         transform: rotate(-2deg) translateX( -10px);
     }
     60% {
@@ -230,7 +229,7 @@ h1 span {
   #menu span.active {
       display: none;
   }
-  div.container a {
+div.container a {
   color: white;
 }
 div.container {
@@ -321,4 +320,6 @@ button.original {
     text-align: center;
     bottom: .5em;
 }
-
+.keep.scrolling a {
+    text-decoration: none;
+}
