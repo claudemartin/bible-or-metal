@@ -279,6 +279,9 @@ button {
     padding: 0.5em 1em;
     margin: 0.5em 3em;
     border: 5px solid gray;
+    background-color: white;
+    color:black;
+    text-shadow: 2px 0 4px white;
     border-radius: 20px;
     cursor: pointer;
 }
