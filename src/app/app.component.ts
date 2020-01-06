@@ -13,50 +13,55 @@ export class AppComponent {
   fullpage_api: any;
 
   public title = 'Bible or Metal?';
-  public bibleCount : number = -1;
-  public metalCount : number = -1;
-  public production :  boolean = false;
+  public bibleCount: number = -1;
+  public metalCount: number = -1;
+  public production: boolean = false;
   public quotes: Quote[] = [];
 
-  constructor(private quotesProvider: QuotesProvider){
-      this.bibleCount = this.quotesProvider.count(q => q.source==='bible');
-      this.metalCount = this.quotesProvider.count(q => q.source==='metal');
+  constructor(private quotesProvider: QuotesProvider) {
+    this.bibleCount = this.quotesProvider.count(q => q.source === 'bible');
+    this.metalCount = this.quotesProvider.count(q => q.source === 'metal');
 
-      this.quotes = this.quotesProvider.getShuffledQuotes();
-      this.production = environment.production;
+    this.quotes = this.quotesProvider.getShuffledQuotes();
+    this.production = environment.production;
+    // Cheating:
+    // this.quotes.forEach(q => q.answer = q.source);
+    // for (let index = 0; index < this.quotes.length; index+=10) {
+    //   this.quotes[index].answer = 'metal';
+    // }
 
-      /*** FULL PAGE ***/
-      let anchors : string[] = ['intro', 'scoring'];
-      this.quotes.map(q=>q.getAnchor()).forEach(a => anchors.push(a));
-      anchors.push("results");
-      anchors.push("about");
-       // for more details on config options please visit fullPage.js docs
-      this.config = {
-        // fullpage options
-        'licenseKey': 'YOUR LICENSE KEY HERE',
-        'anchors': anchors,
-        //'menu': '#menu',
-        'verticalCentered': false,
-        'responsiveWidth' : 1000,
-        'responsiveHeight' : 1000,
-        scrollBar: true
-        // fullpage callbacks
-        /* 
-        afterResize: () => {
-          console.log("After resize");
-        },
-        afterLoad: (origin, destination, direction) => {
-          console.log(origin.index);
-        }
-        */
-      };
+    /*** FULL PAGE ***/
+    let anchors: string[] = ['intro', 'scoring'];
+    this.quotes.map(q => q.getAnchor()).forEach(a => anchors.push(a));
+    anchors.push("results");
+    anchors.push("about");
+    // for more details on config options please visit fullPage.js docs
+    this.config = {
+      // fullpage options
+      'licenseKey': 'YOUR LICENSE KEY HERE',
+      'anchors': anchors,
+      //'menu': '#menu',
+      'verticalCentered': false,
+      'responsiveWidth': 1000,
+      'responsiveHeight': 1000,
+      scrollBar: true
+      // fullpage callbacks
+      /* 
+      afterResize: () => {
+        console.log("After resize");
+      },
+      afterLoad: (origin, destination, direction) => {
+        console.log(origin.index);
+      }
+      */
+    };
   }
 
   getRef(fullPageRef) {
     this.fullpage_api = fullPageRef;
   }
 
-  
+
   public bible(quote: Quote) {
     this.setAnswer(quote, 'bible');
   }
@@ -64,8 +69,8 @@ export class AppComponent {
     this.setAnswer(quote, 'metal');
   }
 
-  private setAnswer(quote: Quote, answer : string) {
-    if(quote.isAnswered()) return;
+  private setAnswer(quote: Quote, answer: string) {
+    if (quote.isAnswered()) return;
     quote.answer = answer;
   }
 
@@ -74,10 +79,12 @@ export class AppComponent {
     return score;
   }
 
-  public getResultDescription() : string {
-  switch (true) {
-    case this.getTotalScore() < 0:
-      return "Your score is below zero. Both God and Satan are very disapointed in you.";
+  public getResultDescription(): string {
+    switch (true) {
+      case this.getTotalScore() < 0:
+        return "Your score is below zero. Both God and Satan are very disapointed in you.";
+      case this.getTotalScore() === 0:
+        return "Your score is zero. Both God and Satan are very disapointed in you.";
       case this.getTotalScore() < (this.quotes.length * 0.20):
         return "At least you got some right. But it doesn't look like you know what you were doing. Satan wants you to listen to more Metal.";
       case this.getTotalScore() < (this.quotes.length * 0.40):
@@ -86,17 +93,17 @@ export class AppComponent {
         return "Satan is pleased to see that you could distinguish many of the Metal lyrics from the word of Yahwe.";
       case this.getTotalScore() < (this.quotes.length * 0.80):
         return "Satan is perfectly satisfied with your ability to distinguish Metal lyrics from the word of Yahwe.";
-      case this.getTotalScore() < (this.quotes.length):  
-        return "Good job! Even the Dark Lord himself could not tell those verses apart you well as you.";
-      case this.getTotalScore() === (this.quotes.length):  
+      case this.getTotalScore() < (this.quotes.length):
+        return "Good job! Even the Dark Lord himself could not tell those verses apart as well as you.";
+      case this.getTotalScore() === (this.quotes.length):
         return "This is a perfect score. You are allknowing, sold your sould to the Devil to win, or you cheated.";
-    default:
-      return "The program is confused. Did you get more points than possible? Are you the allpowerful Lord?";
+      default:
+        return "The program is confused. Did you get more points than possible? Are you the allpowerful Lord?";
     }
   }
 
-  public isNextAnswered(quote : Quote) {
-    if(quote === this.quotes[this.quotes.length-1]) return false;
+  public isNextAnswered(quote: Quote) {
+    if (quote === this.quotes[this.quotes.length - 1]) return false;
     let next = this.quotes[this.quotes.indexOf(quote) + 1];
     return next.isAnswered();
   }
@@ -104,16 +111,16 @@ export class AppComponent {
     return !!this.quotes.find(q => !q.isAnswered());
   }
 
-  
+
   public firstSkippedAnchor() {
     try {
       return this.quotes.find(q => !q.isAnswered()).getAnchor();
-    } catch(e) {
+    } catch (e) {
       return 'results';
     }
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
   }
 }
