@@ -42,8 +42,6 @@ export class AppComponent {
       'anchors': anchors,
       //'menu': '#menu',
       'verticalCentered': false,
-      'responsiveWidth': 1000,
-      'responsiveHeight': 1000,
       scrollBar: true
       // fullpage callbacks
       /* 

@@ -234,6 +234,8 @@ div.container, div.container a {
 }
 div.container {
     background-color: black;
+    background: linear-gradient(180deg, rgb(24, 24, 24) 0%, rgb(0, 0, 0) 2%, rgb(0, 0, 0) 98%,rgb(24, 24, 24) 100%);
+ 
     text-align: center;
 }
 
@@ -245,6 +247,13 @@ div.quote {
     display: table;
     min-height: 35%;
 }
+@media screen and (max-height: 999px) {
+    div.quote {
+        margin-bottom: 0;
+        min-height: unset;
+    }
+}
+
 
 div.quote.long-quote {
     font-size: 80%;
@@ -275,6 +284,7 @@ button {
     border-radius: 20px;
     cursor: pointer;
 }
+
 button.answered  {
     cursor: not-allowed;
 }

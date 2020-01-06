@@ -3,11 +3,14 @@
 @import url('https://fonts.googleapis.com/css?family=Stoke|UnifrakturCook:700&display=swap');
 @import '~fullpage.js/dist/fullpage.min.css';
 
+html, body {
+    overflow-x: hidden !important;
+}
+
 body {
     background-color: bisque;
     font-family: 'Stoke', serif;
     font-size: 16pt;
-    overflow-x: hidden;
 }
 
 a:hover {
@@ -18,5 +21,15 @@ a:hover {
 @media screen and (max-width: 999px) {
     body {
         font-size: 12pt;
+    }
+}
+
+@media screen and (max-height: 999px) {
+    body {
+        font-size: 12pt;
+    }
+    p {
+       margin-bottom: 0;
+       margin-top: 0.5em; 
     }
 }
