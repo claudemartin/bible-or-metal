@@ -230,10 +230,11 @@ h1 span {
   #menu span.active {
       display: none;
   }
-
+  div.container a {
+  color: white;
+}
 div.container {
     background-color: black;
-    color: white;
     text-align: center;
 }
 
