@@ -229,7 +229,7 @@ h1 span {
   #menu span.active {
       display: none;
   }
-div.container a {
+div.container, div.container a {
   color: white;
 }
 div.container {
