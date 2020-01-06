@@ -13,3 +13,9 @@ a:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+
+@media screen and (max-width: 999px) {
+    body {
+        font-size: 12pt;
+    }
+}

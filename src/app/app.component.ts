@@ -29,13 +29,17 @@ export class AppComponent {
       let anchors : string[] = ['intro', 'scoring'];
       this.quotes.map(q=>q.getAnchor()).forEach(a => anchors.push(a));
       anchors.push("results");
+      anchors.push("about");
        // for more details on config options please visit fullPage.js docs
       this.config = {
         // fullpage options
         'licenseKey': 'YOUR LICENSE KEY HERE',
         'anchors': anchors,
         //'menu': '#menu',
-        'verticalCentered': false
+        'verticalCentered': false,
+        'responsiveWidth' : 1000,
+        'responsiveHeight' : 1000,
+        scrollBar: true
         // fullpage callbacks
         /* 
         afterResize: () => {

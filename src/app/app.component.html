@@ -1,3 +1,8 @@
+<div id="menu">
+    <span data-menuanchor="intro"><a href="#intro" title="go back to first page" >🏠</a></span>
+    <span data-menuanchor="about"><a href="#about" title="about this site" data-menuanchor="about">❔</a></span>
+</div>
+
 <div fullpage id="fullpage" [options]="config" (ref)="getRef($event)">
 <div class="section">
     <h1><span class="book">📖</span> <span class="holy">Bible</span> or <span class="unholy"><span class="burn1">M</span><span class="burn2">e</span><span class="burn3">t</span><span class="burn4">a</span><span class="burn5">l</span></span> <span class="horns">🤘</span></h1>
@@ -45,7 +50,6 @@
 </div>
 
 <div *ngFor="let quote of quotes" class="container section">
-
     <div [ngClass]="{quote:true, 'long-quote': quote.quote.length>9}">
         <p *ngFor="let line of quote.quote">{{line}}</p>
     </div>
@@ -105,4 +109,14 @@
 
 </div>
 
+<div class="section">
+    <p>Everthing on this site is intended for entertainment only. </p>
+
+    <p><span class="fraktur">Bible or Metal</span> was made by <a href="/">Claude Martin</a>.</p>
+
+    <p>This application is built using <a href="https://angular.io/" target="_blank">Angular</a> 
+    and <a href="https://alvarotrigo.com/fullPage/" target="_blank">fullPage.js</a>. </p>
+
+    <p>The source code is available on <a href="https://github.com/claudemartin/bible-or-metal" target="_blank">GitHub</a>.</p>
+</div>
 </div>

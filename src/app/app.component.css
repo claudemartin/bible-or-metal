@@ -2,12 +2,21 @@ div.section {
     padding: 5%;
 }
 
+.fraktur {
+    font-family: 'UnifrakturCook', cursive;
+}
 h1 {
     font-family: 'UnifrakturCook', cursive;
     text-align: center;
     font-size: 400%;
     margin-top: 0;
 }
+@media screen and (max-width: 999px) {
+    h1 {
+        font-size: 200%;
+    }
+  }
+
 h1 span {
     font-size: 100%;
     font-family: 'UnifrakturCook', cursive;
@@ -207,6 +216,20 @@ h1 span {
     }
   }
 
+  #menu {
+      filter: grayscale();
+      font-size: 80%;;
+      position: fixed;
+      left: 0.5em;
+      top: 0.5em;
+      z-index: 99999;
+  }
+  #menu a {
+      text-decoration: none;
+  }
+  #menu span.active {
+      display: none;
+  }
 
 div.container {
     background-color: black;
