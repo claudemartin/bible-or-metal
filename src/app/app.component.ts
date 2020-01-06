@@ -91,7 +91,7 @@ export class AppComponent {
     }
   }
 
-  public isNextAnswered(quote : Quotes) {
+  public isNextAnswered(quote : Quote) {
     if(quote === this.quotes[this.quotes.length-1]) return false;
     let next = this.quotes[this.quotes.indexOf(quote) + 1];
     return next.isAnswered();
