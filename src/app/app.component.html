@@ -25,7 +25,7 @@
             It could even be a small change of words to make it rhyme or not rhyme or some other alteration to make it harder.
             In that case you can see the original after you answered.
         </p>
-        <p style="text-align: center;"><strong>Scroll down!</strong></p>
+        <p style="text-align: center;"><strong (click)="fullpage_api.moveSectionDown()">Scroll down to continue!</strong></p>
     </div>
 </div>
 <div class="section">
@@ -41,7 +41,7 @@
             <li>You mistook metal lyrics for the bible: <strong style="color: red">-1 point</strong></li>
         </ul>
     </ul>
-    <p style="text-align: center;"><strong>Scroll down to begin the quiz!</strong></p>
+    <p style="text-align: center;"><strong (click)="fullpage_api.moveSectionDown()">Scroll down to begin the quiz!</strong></p>
 </div>
 
 <div *ngFor="let quote of quotes" class="container section">
@@ -51,29 +51,57 @@
     </div>
 
 
-    <button (click)="bible(quote)" [ngClass]="{active: quote.answer==='bible', bible: true, correct: quote.isCorrect(), wrong: !quote.isCorrect() }" >Bible</button>
-    <button (click)="metal(quote)" [ngClass]="{active: quote.answer==='metal', metal: true, correct: quote.isCorrect(), wrong: !quote.isCorrect() }" >Metal</button>
+    <button (click)="bible(quote)" [ngClass]="{active: quote.answer==='bible', answered : quote.isAnswered(), bible: true, correct: quote.isCorrect(), wrong: quote.isAnswered()&&!quote.isCorrect() }" >Bible</button>
+    <button (click)="metal(quote)" [ngClass]="{active: quote.answer==='metal', answered : quote.isAnswered(), metal: true, correct: quote.isCorrect(), wrong: quote.isAnswered()&&!quote.isCorrect() }" >Metal</button>
 
     <div *ngIf="quote.isAnswered()">
 
-        <p *ngIf="quote.isCorrect()">Correct!</p>
-        <p *ngIf="!quote.isCorrect()">Wrong!</p>
+        <p *ngIf="quote.isCorrect()">Correct! 😈</p>
+        <p *ngIf="!quote.isCorrect()">Wrong! 👿</p>
 
         <app-quote-metal *ngIf="quote.source === 'metal'" [quote]="quote"></app-quote-metal>
         <app-quote-bible *ngIf="quote.source === 'bible'" [quote]="quote"></app-quote-bible>
 
-        <p *ngIf="!!quote.original && quote.quote!==quote.original">Note: The lines were slightly changed to make it more challenging.<br/>
-        <button (click)="quote.quote=quote.original">show original verses</button>
-        </p>
         <p *ngIf="!!quote.comment">{{quote.comment}}</p>
 
+        <p *ngIf="!!quote.original && quote.quote!==quote.original">Note: The lines were slightly changed to make it more challenging.<br/>
+        <button class="original" (click)="quote.quote=quote.original">show original verses</button>
+        </p>
+       
         <p *ngIf="!production">file: {{quote.id}}</p>
+
+        <ng-container *ngIf="quotes[quotes.length-1] !== quote">
+            <ng-container *ngIf="isNextAnswered(quote); then thenBlock else elseBlock"></ng-container>
+                <ng-template #thenBlock><p class="keep scrolling"><a [href]="'#' + firstSkippedAnchor()">Go to first unanswered.</a></p></ng-template>
+                <ng-template #elseBlock><p class="keep scrolling" (click)="fullpage_api.moveSectionDown()">Keep scrolling for more verses.</p></ng-template>
+        </ng-container>
+    </div>
+
+    <div class="move up" (click)="fullpage_api.moveSectionUp()">👆🏾</div>
+    <div class="move down" (click)="fullpage_api.moveSectionDown()">👇🏾</div>
+      
+    <div class="scorebox" (click)="fullpage_api.moveTo('results',0)">
+        Score:
+        <br/>
+        <span>{{getTotalScore()}}</span>
     </div>
 </div>
 
 
-<div class="section" id="results">
-Your score: {{getTotalScore()}}
+<div class="section">
+<p>You made it to the end. </p>
+
+<p>Your score: {{getTotalScore()}}</p>
+
+<p>The best possible score is {{quotes.length}}. You got {{100 * getTotalScore() / quotes.length | number:'1.0-1'}} %</p>
+
+<p>{{getResultDescription()}}</p>
+
+<p *ngIf="hasSkipped()">
+    Looks like you skipped some of the verses.<br/>
+    <a [href]="'#' + firstSkippedAnchor()">Go to first skipped.</a>
+</p>
+
 
 </div>
 

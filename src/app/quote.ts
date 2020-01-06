@@ -49,4 +49,22 @@ export class Quote {
         // User was milead by the devil:
         return -1;
     }
+    /**
+     * This is based on id but somewhat encrypted.
+     */
+    public getAnchor() : string {
+        let space = 'A'.charCodeAt(0);
+        let z = 'z'.charCodeAt(0);
+        let result : string[] = [];
+        for(var i =0; i<this.id.length; i++){
+            var char = this.id.charAt(i);
+            do {
+              char = String.fromCharCode(char.charCodeAt(0) + 21);
+              if(char > 'z')
+                char = String.fromCharCode(char.charCodeAt(0) - 71);
+            } while(!char.match(/[a-z]/i));
+            result.push(char);
+        }
+        return result.join("");
+    }
 }

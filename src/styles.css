@@ -8,3 +8,8 @@ body {
     font-family: 'Stoke', serif;
     font-size: 16pt;
 }
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

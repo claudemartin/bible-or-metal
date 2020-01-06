@@ -247,9 +247,13 @@ button {
     font-family: 'UnifrakturCook', cursive;
     font-size: 150%;
     padding: 0.5em 1em;
-    margin: 1em 2em;
+    margin: 0.5em 3em;
     border: 5px solid gray;
     border-radius: 20px;
+    cursor: pointer;
+}
+button.answered  {
+    cursor: not-allowed;
 }
 button.active.wrong {
     color: red;
@@ -259,3 +263,38 @@ button.active.correct {
     color: green;
     border-color: green;
 }
+
+button.original {
+    padding: 0.2em 0.8em;
+}
+
+.scorebox {
+    position: absolute;
+    right: 3em;
+    bottom: .5em;
+    font-size: 50%;
+}
+.scorebox span {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 200%;
+}
+
+.move {
+    position: absolute;
+    left: 1em;
+    display:none;
+}
+.move.up {
+    top: .5em;
+}
+.move.down {
+    bottom: .5em;
+}
+
+.keep.scrolling {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: .5em;
+}
+

@@ -1,9 +1,9 @@
 button {
     font-family: 'UnifrakturCook', cursive;
     font-size: 120%;
-    padding: 0.2em 0.6em;
-    margin: 2em;
-    border: 2px solid gray;
+    padding: 0.2em 0.8em;
+    margin: .5em;
+    border: 5px solid gray;
     border-radius: 20px;
 }
 
