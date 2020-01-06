@@ -294,8 +294,8 @@ button.original {
 .scorebox {
     position: absolute;
     right: 3em;
-    bottom: .5em;
-    font-size: 50%;
+    bottom: 2em;
+    font-size: 80%;
 }
 .scorebox span {
     font-family: 'UnifrakturCook', cursive;
