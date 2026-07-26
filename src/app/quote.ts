@@ -1,8 +1,8 @@
 export class Quote {
-    public id: string;
-    public source: string;
+    public id!: string;
+    public source!: string;
     public link?: string = undefined;
-    public quote: string[];
+    public quote!: string[];
     
     /* BIBLE */
     public book?: string;
@@ -19,10 +19,10 @@ export class Quote {
     /* Program state */
     public answer : null | 'bible' | 'metal' = null;// null / bible / metal
 
-    constructor(id: string, object: object) {
-        if (!!id) this.id = id;
+    constructor(id: string, object: Partial<Quote>) {
+        this.id = id;
         
-        if (!!object) Object.assign(this, object);
+        Object.assign(this, object);
 
         if (!this.id || !this.source || !Array.isArray(this.quote) || typeof this.quote[0] !== 'string') {
             throw new Error(`Quote with id = ${id} is incomplete: ` + JSON.stringify(object));

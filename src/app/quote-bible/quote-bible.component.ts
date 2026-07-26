@@ -8,7 +8,7 @@ import {Quote} from '../quote';
     standalone: false
 })
 export class QuoteBibleComponent implements OnInit {
-  @Input() public quote: Quote;
+  @Input({ required: true }) quote!: Quote;
   
   constructor() { }
 

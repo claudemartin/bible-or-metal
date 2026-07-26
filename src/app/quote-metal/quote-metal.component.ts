@@ -8,7 +8,8 @@ import {Quote} from '../quote';
     standalone: false
 })
 export class QuoteMetalComponent implements OnInit {
-  @Input() public quote: Quote;
+  @Input({ required: true }) quote!: Quote; 
+
   constructor() { }
 
   ngOnInit() {

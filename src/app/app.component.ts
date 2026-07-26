@@ -56,7 +56,7 @@ export class AppComponent {
     };
   }
 
-  getRef(fullPageRef) {
+  getRef(fullPageRef: any) {
     this.fullpage_api = fullPageRef;
   }
 
