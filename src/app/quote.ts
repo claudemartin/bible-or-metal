@@ -1,7 +1,7 @@
 export class Quote {
     public id: string;
     public source: string;
-    public link: string;
+    public link?: string = undefined;
     public quote: string[];
     
     /* BIBLE */
@@ -17,15 +17,16 @@ export class Quote {
     public comment?:string;
     
     /* Program state */
-    public answer : string = null;// null / bible / metal
+    public answer : null | 'bible' | 'metal' = null;// null / bible / metal
 
-    constructor(id?:string, object?:any) {
-        if(!!id) this.id = id;
-        if(!!object)
-            for(const key in object) {
-                if(object.hasOwnProperty(key)) 
-                    this[key] = object[key];
-            }
+    constructor(id: string, object: object) {
+        if (!!id) this.id = id;
+        
+        if (!!object) Object.assign(this, object);
+
+        if (!this.id || !this.source || !Array.isArray(this.quote) || typeof this.quote[0] !== 'string') {
+            throw new Error(`Quote with id = ${id} is incomplete: ` + JSON.stringify(object));
+        }
     }
 
     public toString = () : string => {
@@ -41,7 +42,7 @@ export class Quote {
         return !!this.answer;
     }
 
-    public getScore() {
+    public getScore() : number {
         if(!this.isAnswered()) return 0;
         if(this.isCorrect()) return 1;
         // User failed to recognise the Lord's word:

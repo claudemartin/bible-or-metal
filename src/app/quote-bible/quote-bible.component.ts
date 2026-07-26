@@ -2,9 +2,10 @@ import { Component, OnInit, Input, Host } from '@angular/core';
 import {Quote} from '../quote';
 
 @Component({
-  selector: 'app-quote-bible',
-  templateUrl: './quote-bible.component.html',
-  styleUrls: ['./quote-bible.component.css']
+    selector: 'app-quote-bible',
+    templateUrl: './quote-bible.component.html',
+    styleUrls: ['./quote-bible.component.css'],
+    standalone: false
 })
 export class QuoteBibleComponent implements OnInit {
   @Input() public quote: Quote;

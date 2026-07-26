@@ -4,9 +4,10 @@ import { environment } from '../environments/environment';
 import { Quote } from './quote';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: false
 })
 export class AppComponent {
   config: any;
@@ -67,7 +68,7 @@ export class AppComponent {
     this.setAnswer(quote, 'metal');
   }
 
-  private setAnswer(quote: Quote, answer: string) {
+  private setAnswer(quote: Quote, answer: 'bible'|'metal') {
     if (quote.isAnswered()) return;
     quote.answer = answer;
   }
@@ -112,7 +113,8 @@ export class AppComponent {
 
   public firstSkippedAnchor() {
     try {
-      return this.quotes.find(q => !q.isAnswered()).getAnchor();
+      let firstSkipped = this.quotes.find(q => !q.isAnswered());
+      return firstSkipped!.getAnchor();
     } catch (e) {
       return 'results';
     }
