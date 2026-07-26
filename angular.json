@@ -36,6 +36,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/bible-or-metal/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
