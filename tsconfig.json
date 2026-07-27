@@ -3,7 +3,11 @@
   "compilerOptions": {
     "strict": true,
     "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
     "sourceMap": true,
     "esModuleInterop": true,
     "declaration": false,

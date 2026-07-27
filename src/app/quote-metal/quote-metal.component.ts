@@ -5,7 +5,7 @@ import {Quote} from '../quote';
     selector: 'app-quote-metal',
     templateUrl: './quote-metal.component.html',
     styleUrls: ['./quote-metal.component.css'],
-    standalone: false
+    standalone: true
 })
 export class QuoteMetalComponent implements OnInit {
   @Input({ required: true }) quote!: Quote; 

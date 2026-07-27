@@ -8,8 +8,8 @@ describe('QuoteMetalComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuoteMetalComponent ]
-    })
+    imports: [QuoteMetalComponent]
+})
     .compileComponents();
   }));
 

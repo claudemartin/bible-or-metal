@@ -1,18 +1,30 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { AppComponent } from './app.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { Directive } from '@angular/core';
+import { AngularFullpageModule } from '@fullpage/angular-fullpage';
+
+@Directive({
+  selector: '[fullpage]',
+  standalone: true
+})
+class MockFullpageDirective { }
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [RouterTestingModule],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-}).compileComponents();
+      imports: [AppComponent],
+      providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+    }).overrideComponent(AppComponent, {
+      remove: {
+        imports: [AngularFullpageModule]
+      },
+      add: {
+        imports: [MockFullpageDirective]
+      }
+    })
+      .compileComponents();
   }));
 
   it('should create the app', () => {

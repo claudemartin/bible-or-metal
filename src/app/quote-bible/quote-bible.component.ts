@@ -5,7 +5,7 @@ import {Quote} from '../quote';
     selector: 'app-quote-bible',
     templateUrl: './quote-bible.component.html',
     styleUrls: ['./quote-bible.component.css'],
-    standalone: false
+    standalone: true
 })
 export class QuoteBibleComponent implements OnInit {
   @Input({ required: true }) quote!: Quote;

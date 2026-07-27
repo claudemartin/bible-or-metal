@@ -2,12 +2,23 @@ import { Component } from '@angular/core';
 import { QuotesProvider } from './quotes.provider';
 import { environment } from '../environments/environment';
 import { Quote } from './quote';
+import { DecimalPipe, NgClass } from '@angular/common';
+import { QuoteMetalComponent } from './quote-metal/quote-metal.component';
+import { QuoteBibleComponent } from './quote-bible/quote-bible.component';
+import { AngularFullpageModule } from '@fullpage/angular-fullpage';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
-    standalone: false
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  imports: [
+    NgClass,
+    AngularFullpageModule,
+    QuoteMetalComponent,
+    QuoteBibleComponent,
+    DecimalPipe
+  ],
+  standalone: true
 })
 export class AppComponent {
   config: any;
@@ -68,7 +79,7 @@ export class AppComponent {
     this.setAnswer(quote, 'metal');
   }
 
-  private setAnswer(quote: Quote, answer: 'bible'|'metal') {
+  private setAnswer(quote: Quote, answer: 'bible' | 'metal') {
     if (quote.isAnswered()) return;
     quote.answer = answer;
   }
@@ -101,10 +112,10 @@ export class AppComponent {
     }
   }
 
-  public isNextAnswered(quote: Quote) {
+  public isNextAnswered(quote: Quote) : boolean {
     if (quote === this.quotes[this.quotes.length - 1]) return false;
     let next = this.quotes[this.quotes.indexOf(quote) + 1];
-    return next.isAnswered();
+    return next?.isAnswered() ?? false;
   }
   public hasSkipped() {
     return !!this.quotes.find(q => !q.isAnswered());

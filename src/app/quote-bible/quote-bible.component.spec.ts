@@ -8,8 +8,8 @@ describe('QuoteBibleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuoteBibleComponent ]
-    })
+    imports: [QuoteBibleComponent]
+})
     .compileComponents();
   }));
 

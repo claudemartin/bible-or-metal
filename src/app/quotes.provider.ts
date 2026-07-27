@@ -33,7 +33,7 @@ export class QuotesProvider {
     return promise.then((files) => {
       let promises: Promise<Quote>[] = [];
       for (let i = 0; i < files.length; i++) {
-        let file = files[i];
+        let file = files[i]!;
         promises.push(new Promise<Quote>((resolve, reject) => {
           this.http.get<Quote>(this.baseUrl + file + ".json").subscribe({
             next: data => {
